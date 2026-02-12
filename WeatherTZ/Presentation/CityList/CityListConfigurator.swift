@@ -9,8 +9,9 @@ import SwiftUI
 
 enum CityListConfigurator {
     @MainActor
-    static func configure() -> CityListView {
-        let viewModel = CityListViewModel()
+    static func configure(container: DependencyContainer = .shared) -> CityListView {
+        let viewModel = CityListViewModel(repository: container.weatherRepository)
         return CityListView(viewModel: viewModel)
     }
 }
+
