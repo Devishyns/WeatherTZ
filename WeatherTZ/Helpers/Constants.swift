@@ -11,7 +11,7 @@ enum Constants {
 
     enum API {
         static let baseURL = "https://api.openweathermap.org/data/3.0"
-        static let apiKey = "f790d7d2059c5008eec79943ec645286"
+        static let apiKey = "" // Вставить свой API ключ
     }
 
     enum Weather {
