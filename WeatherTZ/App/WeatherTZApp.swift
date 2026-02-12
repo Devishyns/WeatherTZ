@@ -11,9 +11,7 @@ import SwiftUI
 struct WeatherTZApp: App {
     var body: some Scene {
         WindowGroup {
-            VStack {
-                
-            }
+            CityListConfigurator.configure()
         }
     }
 }
