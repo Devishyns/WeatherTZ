@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CEA75C002F3DDB0500CB22A3 /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = CEA75BFF2F3DDB0500CB22A3 /* File.txt */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		CEA75B6F2F3DD94700CB22A3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		CEA75B612F3DD94500CB22A3 /* WeatherTZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherTZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA75B6E2F3DD94700CB22A3 /* WeatherTZTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherTZTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA75B782F3DD94700CB22A3 /* WeatherTZUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherTZUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEA75BFF2F3DDB0500CB22A3 /* File.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = File.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,11 +43,6 @@
 		CEA75B712F3DD94700CB22A3 /* WeatherTZTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = WeatherTZTests;
-			sourceTree = "<group>";
-		};
-		CEA75B7B2F3DD94700CB22A3 /* WeatherTZUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = WeatherTZUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -77,8 +77,8 @@
 			children = (
 				CEA75B632F3DD94500CB22A3 /* WeatherTZ */,
 				CEA75B712F3DD94700CB22A3 /* WeatherTZTests */,
-				CEA75B7B2F3DD94700CB22A3 /* WeatherTZUITests */,
 				CEA75B622F3DD94500CB22A3 /* Products */,
+				CEA75BFF2F3DDB0500CB22A3 /* File.txt */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,9 +153,6 @@
 			dependencies = (
 				CEA75B7A2F3DD94700CB22A3 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				CEA75B7B2F3DD94700CB22A3 /* WeatherTZUITests */,
-			);
 			name = WeatherTZUITests;
 			packageProductDependencies = (
 			);
@@ -212,6 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA75C002F3DDB0500CB22A3 /* File.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
