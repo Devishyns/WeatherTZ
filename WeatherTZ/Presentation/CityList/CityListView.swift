@@ -14,7 +14,7 @@ struct CityListView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(.systemGroupedBackground)
+                Color(red: 0.95, green: 0.94, blue: 0.92)
                     .ignoresSafeArea()
 
                 Group {
@@ -23,24 +23,18 @@ struct CityListView: View {
                     } else if let error = viewModel.errorMessage {
                         errorView(error)
                     } else {
-                        ScrollView {
-                            LazyVStack(spacing: 8) {
-                                ForEach(viewModel.weatherData) { item in
-                                    Text(item.city.name)
-                                }
-                            }
-                        }
+                        contentView
                     }
                 }
-                .navigationTitle("Weather")
-                .refreshable {
-                    await viewModel.loadAll()
-                }
             }
-            .task {
-                if viewModel.weatherData.isEmpty {
-                    await viewModel.loadAll()
-                }
+            .navigationTitle("Погода")
+            .refreshable {
+                await viewModel.loadAll()
+            }
+        }
+        .task {
+            if viewModel.weatherData.isEmpty {
+                await viewModel.loadAll()
             }
         }
     }
@@ -51,7 +45,7 @@ struct CityListView: View {
         VStack(spacing: 14) {
             ProgressView()
                 .controlSize(.large)
-            Text("Loading weather...")
+            Text("Загрузка...")
                 .font(.footnote)
                 .foregroundStyle(.secondary)
         }
@@ -69,7 +63,7 @@ struct CityListView: View {
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
 
-            Button("Retry") {
+            Button("Повторить") {
                 Task { await viewModel.loadAll() }
             }
             .font(.footnote.weight(.medium))
@@ -79,4 +73,50 @@ struct CityListView: View {
         .padding(32)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
+
+    // MARK: - Content
+
+    private var contentView: some View {
+        ScrollView {
+            LazyVStack(spacing: 10) {
+                ForEach(viewModel.weatherData) { item in
+                    NavigationLink(value: item) {
+                        CityWeatherCard(
+                            weather: item,
+                            isRefreshing: viewModel.refreshingCityId == item.city.id,
+                            onRefresh: {
+                                Task { await viewModel.refreshCity(item.city.id) }
+                            }
+                        )
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding(.horizontal, 16)
+            .padding(.top, 8)
+            .padding(.bottom, 32)
+        }
+        .navigationDestination(for: CityWeather.self) { item in
+            CityDetailConfigurator.configure(cityWeather: item)
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

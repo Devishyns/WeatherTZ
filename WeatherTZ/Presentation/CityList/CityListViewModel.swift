@@ -52,7 +52,7 @@ final class CityListViewModel: ObservableObject {
 
         isLoading = false
     }
-    
+
     /// Обновить погоду для конкретного города
     func refreshCity(_ cityId: String) async {
         guard let city = City.capitals.first(where: { $0.id == cityId }) else { return }

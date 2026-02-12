@@ -25,7 +25,7 @@ struct CurrentWeather: Hashable, Sendable {
 
 /// Дневной прогноз
 struct DailyForecast: Identifiable, Hashable, Sendable {
-    let id: String                // дата как строка
+    let id: String
     let date: Date
     let tempMin: Double
     let tempMax: Double
